@@ -93,6 +93,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
     public Object getBean(String id) {
         // 通过id，从beanMap中取出对应的类的对象
         // 用来测试Push操作 testing push operation
+        // 用来测试本地通过pull拉去远程库的代码
         return beanMap.get(id);
     }
 }
