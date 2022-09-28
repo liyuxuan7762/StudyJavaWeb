@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>com.company.AddServlet</servlet-class>
+        <!--> 表示加载的优先级 设置完这个以后对应的java类会在Tomcat容器加载时调用构造方法加载 不会等到第一次访问时 <!-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DemoServlet</servlet-name>
+        <servlet-class>com.company.DemoServlet</servlet-class>
+        <!--> 表示加载的优先级 设置完这个以后对应的java类会在Tomcat容器加载时调用构造方法加载 不会等到第一次访问时 <!-->
+        <load-on-startup>1</load-on-startup>
+        <!-->在这里可以设置一下初始化的值，然后可以从init()方法中通过getServletConfig()方法获取config对象
+        ，通过该对象的getinitparameter(key)的方式获取到值<!-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DemoServlet</servlet-name>
+        <url-pattern>/demo</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- 配置上下文参数 -->
+    <context-param>
+        <param-name>view-prefix</param-name>
+        <param-value>/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>view-suffix</param-name>
+        <param-value>.html</param-value>
+    </context-param>
+</web-app>

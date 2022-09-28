@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans>
+    <bean id = "fruit" class = "com.company.FruitController">
+        <property name = "fruitService" ref="fruitService"></property>
+    </bean>
+    <bean id = "fruitDAO" class="com.company.FruitDAOImpl"></bean>
+    <bean id = "fruitService" class="com.company.FruitServiceImpl">
+        <!--> name 表示属性名，即代码中的属性名称 name的作用是后续通过反射根据name的名字获取到相应的字段<!-->
+        <!--> ref表示要依赖的bean组件的id名称 根据id从beanMap中取出对象<!-->
+        <property name = "fruitDAO" ref="fruitDAO"></property>
+    </bean>
+</beans>
