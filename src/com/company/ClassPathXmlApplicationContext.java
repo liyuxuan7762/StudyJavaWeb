@@ -92,6 +92,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
     @Override
     public Object getBean(String id) {
         // 通过id，从beanMap中取出对应的类的对象
+        // 用来测试Push操作 testing push operation
         return beanMap.get(id);
     }
 }
